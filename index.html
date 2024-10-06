@@ -8,108 +8,131 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-    .w3-row-padding img {margin-bottom: 12px}
-    /* Set the width of the sidebar to 120px */
-    .w3-sidebar {width: 120px;background: #222;}
-    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-    #main {margin-left: 120px}
-    /* Remove margins from "page content" on small screens */
-    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-
-    .caramel { background: #fbfbfb; }
+      body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+      .w3-row-padding img {margin-bottom: 12px}
+      /* Set the width of the sidebar to 120px */
+      .w3-sidebar {width: 120px;background: #222;}
+      /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+      #main {margin-left: 120px}
+      /* Remove margins from "page content" on small screens */
+      @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+      .caramel { background: #fbfbfb; }
     </style>
   </head>
-<body class="caramel">
+  <body class="caramel">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center caramel">
-  <!-- Avatar image in top left corner -->
-  <img src="me.png" style="width:100%">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large caramel">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center caramel">
+      <!-- Avatar image in top left corner -->
+      <img src="me.png" style="width:100%">
+      <a href="#" class="w3-bar-item w3-button w3-padding-large caramel">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>HOME</p>
+      </a>
+      <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>ABOUT</p>
+      </a>
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>CONTACT</p>
+      </a>
+    </nav>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:33% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:33% !important">ABOUT</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:33% !important">CONTACT</a>
-  </div>
-</div>
-
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center caramel" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Tsohle</h1>
-    <p>Software Engineer</p>
-    <img src="me.png" alt="boy" class="w3-image" width="992" height="1108">
-  </header>
-
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-black">Tsohle Mokhemisi</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p>A versatile software designer due to my extensive history in graphic, web design, databases, game devoplements, mobile applications develoments, Machine learning and the big tasty one block chains. My dedication to continuously learning about new software trends and concepts is what makes me assert in any computer science project.</p>
-   
-    <h3 class="w3-padding-16 w3-text-black">My Skills</h3>
-    <p class="w3-wide">Mobile applications</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+      <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+        <a href="#" class="w3-bar-item w3-button" style="width:33% !important">HOME</a>
+        <a href="#about" class="w3-bar-item w3-button" style="width:33% !important">ABOUT</a>
+        <a href="#contact" class="w3-bar-item w3-button" style="width:33% !important">CONTACT</a>
+      </div>
     </div>
-    <p class="w3-wide">Web Design</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+      <!-- Header/Home -->
+      <header class="w3-container w3-padding-32 w3-center caramel" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Tsohle</h1>
+        <p>Software Engineer</p>
+        <img src="me.png" alt="Tsohle Mokhemisi portrait" class="w3-image" width="992" height="1108">
+      </header>
+
+      <!-- About Section -->
+      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+        <h2 class="w3-text-black">Tsohle Mokhemisi</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <p>A computer science student who has designed, built, deployed, and maintained full-stack websites. I’m a novice in machine learning and deep learning, and I’m constantly expanding my knowledge in these fields. My dedication to continuously learning about new software trends and concepts is what makes me confident in any computer science project.</p>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="skills">
+        <h2 class="w3-text-black">My Skills</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <p class="w3-wide"><strong>Web Development</strong>: JavaScript/TypeScript, React, Ruby on Rails, Postgres</p>
+        <p class="w3-wide"><strong>Data Science</strong>: Python, PowerBI, SQL, Deep Learning, Fine-tuning with LoRa</p>
+        <p class="w3-wide"><strong>DevOps</strong>: C, Bash, Linux (I use Arch btw)</p>
+        <p class="w3-wide"><strong>Tools & Methods</strong>: Git, GitHub, Heroku, AWS, Mobile/Responsive Development, Chrome Dev Tools</p>
+        <p class="w3-wide"><strong>Professional</strong>: Agile, Remote Pair-Programming, Teamwork, Mentoring</p>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="experience">
+        <h2 class="w3-text-black">Experience</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <h3 class="w3-padding-16 w3-text-black">Telkom BCX Group</h3>
+        <p><strong>Data Science Intern</strong> — Remote (September 2023 – December 2023)</p>
+        <ul>
+          <li>Built a Large Language Model (LLM) from scratch.</li>
+          <li>Fine-tuned a foundation model to optimize for a specific use case.</li>
+          <li>Led a project team, managing the cloud environment for the project in GCP.</li>
+        </ul>
+
+        <h3 class="w3-padding-16 w3-text-black">Microverse</h3>
+        <p><strong>Code Reviewer (Part-Time)</strong> — Remote (February 2023 – July 2023)</p>
+        <ul>
+          <li>Mentored junior web developers, providing technical support through code reviews.</li>
+          <li>Proposed improvements to code organization for better performance and quality.</li>
+          <li>Provided tips and advice to maintain motivation and ensure best practices.</li>
+        </ul>
+      </div>
+
+      <!-- Projects Section -->
+      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="projects">
+        <h2 class="w3-text-black">Projects</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <h3 class="w3-padding-16 w3-text-black">Airbnb Clone</h3>
+        <p>An Airbnb clone built using Python that replicates core functionalities like user management, property listing, and booking processes.</p>
+        <a href="https://github.com/tsohleDev/AirBnB_clone" target="_blank" class="w3-button w3-black w3-hover-opacity">
+          View on GitHub
+        </a>
+
+        <h3 class="w3-padding-16 w3-text-black">Blogging App</h3>
+        <p>A fully functional blogging application allowing users to create, edit, and manage blog posts, built using web development technologies.</p>
+        <a href="https://github.com/tsohleDev/weblog" target="_blank" class="w3-button w3-black w3-hover-opacity">
+          View on GitHub
+        </a>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+        <h2 class="w3-text-black">Contact Me</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <div class="w3-section">
+          <p>Welkom, Free State, South Africa</p>
+          <p>Phone: +2760 5560 512</p>
+          <p>Email: mokhemisitsohle@gmail.com</p>
+        </div><br>
+      </div>
+
+      <!-- Footer -->
+      <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+        <a class="fa fa-github w3-hover-opacity" href="https://github.com/tsohleDev" target="_blank"></a>
+        <a class="fa fa-twitter w3-hover-opacity" href="https://twitter.com/RealTsohle" target="_blank"></a>
+        <a class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/" target="_blank"></a>
+      </footer>
     </div>
-    <p class="w3-wide">Game development</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
-    <p class="w3-wide">Machine learning</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:83%"></div>
-    </div><br>
-    <p class="w3-wide">block chains</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:70%"></div>
-    </div><br>
-    
-
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-black">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      <p>Welkom, Free State, South Africa</p>
-      <p>Phone: +2760 5560 512</p>
-      <p>Email: mokhemisitsohle@gmail.com</p>
-    </div><br>
-  <!-- End Contact Section -->
-  </div>
-  
-<!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-  <a class="fa fa-github w3-hover-opacity" href="https://github.com/tsohleDev" > </a> 
-  <a class="fa fa-twitter w3-hover-opacity"  href="https://twitter.com/RealTsohle" > </a> 
-  <a class="fa fa-linkedin w3-hover-opacity"  href="https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/" > </a> 
- <!-- End footer -->
-</footer>
-
-<!-- END PAGE CONTENT -->
-</div>
-
-</body>
+  </body>
 </html>
