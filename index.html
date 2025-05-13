@@ -1,138 +1,378 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tsohle Mokhemisi</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-      .w3-row-padding img {margin-bottom: 12px}
-      /* Set the width of the sidebar to 120px */
-      .w3-sidebar {width: 120px;background: #222;}
-      /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-      #main {margin-left: 120px}
-      /* Remove margins from "page content" on small screens */
-      @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-      .caramel { background: #fbfbfb; }
-    </style>
-  </head>
-  <body class="caramel">
 
-    <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center caramel">
-      <!-- Avatar image in top left corner -->
-      <img src="me.png" style="width:100%">
-      <a href="#" class="w3-bar-item w3-button w3-padding-large caramel">
-        <i class="fa fa-home w3-xxlarge"></i>
+<head>
+  <title>Tsohle Mokhemisi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Removed W3.CSS stylesheet -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .caramel {
+      background: #fbfbfb;
+    }
+
+    /* Grid layout styles */
+    body {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      /* Sidebar width and main content */
+      grid-template-areas:
+        "sidebar main";
+      min-height: 100vh;
+      margin: 0;
+      color: #333;
+      /* Default text color */
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background: #222;
+      /* Original sidebar background */
+      color: #f1f1f1;
+      /* Light text color for dark background */
+      padding: 15px;
+      text-align: center;
+    }
+
+    .sidebar img {
+      width: 100%;
+      max-width: 100px;
+      /* Control max image size */
+      border-radius: 50%;
+      /* Make avatar circular */
+      margin-bottom: 20px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 0.9em;
+    }
+
+    .sidebar-nav a:hover {
+      background-color: #444;
+    }
+
+    .sidebar-nav i {
+      font-size: 28px;
+      /* Adjust icon size */
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .main-content {
+      grid-area: main;
+      padding: 20px 40px;
+      /* Add some padding */
+      overflow-y: auto;
+    }
+
+    .small-screen-navbar {
+      display: none;
+      /* Hidden by default, shown via media query */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      /* Dark background for navbar */
+      z-index: 1000;
+    }
+
+    .small-screen-navbar-inner {
+      display: flex;
+      justify-content: space-around;
+      /* Distribute items evenly */
+    }
+
+    .small-screen-navbar a {
+      padding: 14px 16px;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+      flex-grow: 1;
+      /* Allow items to grow and fill space */
+    }
+
+    .small-screen-navbar a:hover {
+      background-color: #555;
+    }
+
+    /* Media query for small screens */
+    @media only screen and (max-width: 768px) {
+
+      /* Adjusted breakpoint */
+      body {
+        grid-template-columns: 1fr;
+        /* Main content takes full width */
+        grid-template-areas:
+          "main";
+      }
+
+      .sidebar {
+        display: none;
+        /* Hide sidebar */
+      }
+
+      .main-content {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+      }
+
+      .small-screen-navbar {
+        display: block;
+        /* Show small screen navbar */
+      }
+
+      header.page-header {
+        padding-top: 60px;
+        /* Add padding to avoid overlap with fixed navbar */
+      }
+    }
+
+    /* Utility classes (replacing W3.CSS utilities) */
+    .text-center {
+      text-align: center;
+    }
+
+    .text-grey {
+      color: #6c757d;
+    }
+
+    /* Bootstrap-like grey */
+    .text-black {
+      color: #000;
+    }
+
+    .padding-large {
+      padding: 32px 16px;
+    }
+
+    .padding-xlarge {
+      padding: 48px 16px;
+    }
+
+    /* For sections like about, skills */
+
+    .content-container {
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-justify {
+      text-align: justify;
+    }
+
+    .responsive-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .button {
+      border: none;
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+
+    hr.separator {
+      border: 0;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+      width: 200px;
+    }
+
+    .heading-jumbo {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .hide-small-screen {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      .hide-small-screen {
+        display: none;
+      }
+
+      .heading-jumbo {
+        font-size: 36px;
+      }
+    }
+
+    .section-heading {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .sub-heading {
+      font-size: 1.5em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .footer-social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #6c757d;
+      font-size: 28px;
+      /* Larger icons */
+    }
+
+    .footer-social-links a:hover {
+      color: #333;
+    }
+
+    ul {
+      list-style-position: inside;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+  </head>
+
+<body class="caramel">
+
+  <nav class="sidebar caramel">
+    <img src="me.png" alt="Tsohle Mokhemisi">
+    <div class="sidebar-nav">
+      <a href="#">
+        <i class="fa fa-home"></i>
         <p>HOME</p>
       </a>
-      <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
-        <i class="fa fa-user w3-xxlarge"></i>
+      <a href="#about">
+        <i class="fa fa-user"></i>
         <p>ABOUT</p>
       </a>
-      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover caramel">
-        <i class="fa fa-envelope w3-xxlarge"></i>
+      <a href="#contact">
+        <i class="fa fa-envelope"></i>
         <p>CONTACT</p>
       </a>
-    </nav>
-
-    <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-      <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="#" class="w3-bar-item w3-button" style="width:33% !important">HOME</a>
-        <a href="#about" class="w3-bar-item w3-button" style="width:33% !important">ABOUT</a>
-        <a href="#contact" class="w3-bar-item w3-button" style="width:33% !important">CONTACT</a>
-      </div>
     </div>
+  </nav>
 
-    <!-- Page Content -->
-    <div class="w3-padding-large" id="main">
-      <!-- Header/Home -->
-      <header class="w3-container w3-padding-32 w3-center caramel" id="home">
-        <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Tsohle</h1>
-        <p>Software Engineer</p>
-        <img src="me.png" alt="Tsohle Mokhemisi portrait" class="w3-image" width="992" height="1108">
+  <div class="small-screen-navbar" id="myNavbar">
+    <div class="small-screen-navbar-inner">
+      <a href="#">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <header class="page-header text-center caramel padding-large" id="home">
+      <h1 class="heading-jumbo"><span class="hide-small-screen">I'm</span> Tsohle</h1>
+      <p>Software Engineer</p>
+      <img src="me.png" alt="Tsohle Mokhemisi portrait" class="responsive-image" style="max-width:500px; margin-top: 20px;">
       </header>
 
-      <!-- About Section -->
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-        <h2 class="w3-text-black">Tsohle Mokhemisi</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <p>A computer science student who has designed, built, deployed, and maintained full-stack websites. I’m a novice in machine learning and deep learning, and I’m constantly expanding my knowledge in these fields. My dedication to continuously learning about new software trends and concepts is what makes me confident in any computer science project.</p>
-      </div>
+    <section class="content-container padding-xlarge" id="about">
+      <h2 class="section-heading text-black">Tsohle Mokhemisi</h2>
+      <hr class="separator">
+      <p class="text-grey text-justify">A computer science student who has designed, built, deployed, and maintained
+        full-stack websites. I’m a novice in machine learning and deep learning, and I’m constantly expanding my
+        knowledge in these fields. My dedication to continuously learning about new software trends and concepts is what
+        makes me confident in any computer science project.</p>
+    </section>
 
-      <!-- Skills Section -->
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="skills">
-        <h2 class="w3-text-black">My Skills</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <p class="w3-wide"><strong>Web Development</strong>: JavaScript/TypeScript, React, Ruby on Rails, Postgres</p>
-        <p class="w3-wide"><strong>Data Science</strong>: Python, PowerBI, SQL, Deep Learning, Fine-tuning with LoRa</p>
-        <p class="w3-wide"><strong>DevOps</strong>: C, Bash, Linux (I use Arch btw)</p>
-        <p class="w3-wide"><strong>Tools & Methods</strong>: Git, GitHub, Heroku, AWS, Mobile/Responsive Development, Chrome Dev Tools</p>
-        <p class="w3-wide"><strong>Professional</strong>: Agile, Remote Pair-Programming, Teamwork, Mentoring</p>
-      </div>
+    <section class="content-container padding-xlarge" id="skills">
+      <h2 class="section-heading text-black">My Skills</h2>
+      <hr class="separator">
+      <p class="text-grey"><strong>Web Development</strong>: JavaScript/TypeScript, React, Ruby on Rails, Postgres</p>
+      <p class="text-grey"><strong>Data Science</strong>: Python, PowerBI, SQL, Deep Learning, Fine-tuning with LoRa</p>
+      <p class="text-grey"><strong>DevOps</strong>: C, Bash, Linux (I use Arch btw)</p>
+      <p class="text-grey"><strong>Tools & Methods</strong>: Git, GitHub, Heroku, AWS, Mobile/Responsive Development,
+        Chrome Dev Tools</p>
+      <p class="text-grey"><strong>Professional</strong>: Agile, Remote Pair-Programming, Teamwork, Mentoring</p>
+    </section>
 
-      <!-- Experience Section -->
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="experience">
-        <h2 class="w3-text-black">Experience</h2>
-        <hr style="width:200px" class="w3-opacity">
+    <section class="content-container padding-xlarge" id="experience">
+      <h2 class="section-heading text-black">Experience</h2>
+      <hr class="separator">
 
-        <h3 class="w3-padding-16 w3-text-black">Telkom BCX Group</h3>
-        <p><strong>Data Science Intern</strong> — Remote (September 2023 – December 2023)</p>
-        <ul>
-          <li>Built a Large Language Model (LLM) from scratch.</li>
-          <li>Fine-tuned a foundation model to optimize for a specific use case.</li>
-          <li>Led a project team, managing the cloud environment for the project in GCP.</li>
-        </ul>
+      <h3 class="sub-heading text-black">Telkom BCX Group</h3>
+      <p class="text-grey"><strong>Data Science Intern</strong> — Remote (September 2023 – December 2023)</p>
+      <ul class="text-grey">
+        <li>Built a Large Language Model (LLM) from scratch.</li>
+        <li>Fine-tuned a foundation model to optimize for a specific use case.</li>
+        <li>Led a project team, managing the cloud environment for the project in GCP.</li>
+      </ul>
 
-        <h3 class="w3-padding-16 w3-text-black">Microverse</h3>
-        <p><strong>Code Reviewer (Part-Time)</strong> — Remote (February 2023 – July 2023)</p>
-        <ul>
-          <li>Mentored junior web developers, providing technical support through code reviews.</li>
-          <li>Proposed improvements to code organization for better performance and quality.</li>
-          <li>Provided tips and advice to maintain motivation and ensure best practices.</li>
-        </ul>
-      </div>
+      <h3 class="sub-heading text-black">Microverse</h3>
+      <p class="text-grey"><strong>Code Reviewer (Part-Time)</strong> — Remote (February 2023 – July 2023)</p>
+      <ul class="text-grey">
+        <li>Mentored junior web developers, providing technical support through code reviews.</li>
+        <li>Proposed improvements to code organization for better performance and quality.</li>
+        <li>Provided tips and advice to maintain motivation and ensure best practices.</li>
+      </ul>
+    </section>
 
-      <!-- Projects Section -->
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="projects">
-        <h2 class="w3-text-black">Projects</h2>
-        <hr style="width:200px" class="w3-opacity">
+    <section class="content-container padding-xlarge" id="projects">
+      <h2 class="section-heading text-black">Projects</h2>
+      <hr class="separator">
 
-        <h3 class="w3-padding-16 w3-text-black">Airbnb Clone</h3>
-        <p>An Airbnb clone built using Python that replicates core functionalities like user management, property listing, and booking processes.</p>
-        <a href="https://github.com/tsohleDev/AirBnB_clone" target="_blank" class="w3-button w3-black w3-hover-opacity">
-          View on GitHub
-        </a>
+      <h3 class="sub-heading text-black">Airbnb Clone</h3>
+      <p class="text-grey">An Airbnb clone built using Python that replicates core functionalities like user management,
+        property listing, and booking processes.</p>
+      <a href="https://github.com/tsohleDev/AirBnB_clone" target="_blank" class="button">
+        View on GitHub
+      </a>
 
-        <h3 class="w3-padding-16 w3-text-black">Blogging App</h3>
-        <p>A fully functional blogging application allowing users to create, edit, and manage blog posts, built using web development technologies.</p>
-        <a href="https://github.com/tsohleDev/weblog" target="_blank" class="w3-button w3-black w3-hover-opacity">
-          View on GitHub
-        </a>
-      </div>
+      <h3 class="sub-heading text-black">Blogging App</h3>
+      <p class="text-grey">A fully functional blogging application allowing users to create, edit, and manage blog
+        posts, built using web development technologies.</p>
+      <a href="https://github.com/tsohleDev/weblog" target="_blank" class="button">
+        View on GitHub
+      </a>
+    </section>
 
-      <!-- Contact Section -->
-      <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-        <h2 class="w3-text-black">Contact Me</h2>
-        <hr style="width:200px" class="w3-opacity">
+    <section class="content-container padding-xlarge text-grey" id="contact">
+      <h2 class="section-heading text-black">Contact Me</h2>
+      <hr class="separator">
 
-        <div class="w3-section">
-          <p>Welkom, Free State, South Africa</p>
-          <p>Phone: +2760 5560 512</p>
-          <p>Email: mokhemisitsohle@gmail.com</p>
-        </div><br>
-      </div>
+      <div>
+        <p><i class="fa fa-map-marker fa-fw"></i> Welkom, Free State, South Africa</p>
+        <p><i class="fa fa-phone fa-fw"></i> Phone: +2760 5560 512</p>
+        <p><i class="fa fa-envelope fa-fw"></i> Email: mokhemisitsohle@gmail.com</p>
+      </div><br>
+    </section>
 
-      <!-- Footer -->
-      <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-        <a class="fa fa-github w3-hover-opacity" href="https://github.com/tsohleDev" target="_blank"></a>
-        <a class="fa fa-twitter w3-hover-opacity" href="https://twitter.com/RealTsohle" target="_blank"></a>
-        <a class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/" target="_blank"></a>
-      </footer>
+    <footer class="content-container padding-xlarge text-center footer-social-links">
+      <a class="fa fa-github" href="https://github.com/tsohleDev" target="_blank" title="GitHub"></a>
+      <a class="fa fa-twitter" href="https://twitter.com/RealTsohle" target="_blank" title="Twitter"></a>
+      <a class="fa fa-linkedin" href="https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/" target="_blank"
+        title="LinkedIn"></a>
+    </footer>
     </div>
-  </body>
+    </body>
+
 </html>
