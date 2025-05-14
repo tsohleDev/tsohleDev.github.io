@@ -37,20 +37,32 @@
     }
 
     .sidebar {
+      /* Original properties */
       grid-area: sidebar;
       background: #222;
-      /* Original sidebar background */
       color: #f1f1f1;
-      /* Light text color for dark background */
       padding: 15px;
-      text-align: center;
+      text-align: center; /* Ensures text content within items is centered if not overridden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 100vh;
+      overflow-y: auto; /* Allows scrolling if content exceeds sidebar height */
+      z-index: 1000;
+
+      /* Added: Make the sidebar a grid container with 4 rows */
+      display: grid;
+      grid-template-rows: repeat(4, 1fr); /* Creates four rows of equal height */
+      align-items: center;     /* Vertically centers items within their grid cell */
+      justify-items: center;   /* Horizontally centers items within their grid cell */
     }
 
     .sidebar img {
       width: 100%;
       max-width: 100px;
       /* Control max image size */
-      border-radius: 50%;
+      border-radius: 30%;
       /* Make avatar circular */
       margin-bottom: 20px;
     }
