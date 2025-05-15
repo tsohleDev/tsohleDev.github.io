@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <title>Tsohle Mokhemisi</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Removed W3.CSS stylesheet -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body,
     h1,
     h2,
@@ -23,48 +26,47 @@
       background: #fbfbfb;
     }
 
-    /* Grid layout styles */
     body {
       display: grid;
       grid-template-columns: 120px 1fr;
-      /* Sidebar width and main content */
       grid-template-areas:
         "sidebar main";
       min-height: 100vh;
       margin: 0;
       color: #333;
-      /* Default text color */
     }
 
     .sidebar {
-      /* Original properties */
       grid-area: sidebar;
       background: #222;
       color: #f1f1f1;
       padding: 15px;
-      text-align: center; /* Ensures text content within items is centered if not overridden */
+      text-align: center;
       position: fixed;
       top: 0;
       left: 0;
       width: 120px;
       height: 100vh;
-      overflow-y: auto; /* Allows scrolling if content exceeds sidebar height */
+      overflow-y: auto;
       z-index: 1000;
-
-      /* Added: Make the sidebar a grid container with 4 rows */
       display: grid;
-      grid-template-rows: repeat(4, 1fr); /* Creates four rows of equal height */
-      align-items: center;     /* Vertically centers items within their grid cell */
-      justify-items: center;   /* Horizontally centers items within their grid cell */
+      grid-template-rows: auto 1fr;
+      align-items: center;
+      justify-items: center;
     }
 
     .sidebar img {
       width: 100%;
       max-width: 100px;
-      /* Control max image size */
-      border-radius: 30%;
-      /* Make avatar circular */
+      border-radius: 50%;
       margin-bottom: 20px;
+    }
+
+    .sidebar-nav {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .sidebar-nav a {
@@ -80,8 +82,7 @@
     }
 
     .sidebar-nav i {
-      font-size: 28px;
-      /* Adjust icon size */
+      font-size: 24px;
       display: block;
       margin-bottom: 5px;
     }
@@ -89,74 +90,73 @@
     .main-content {
       grid-area: main;
       padding: 20px 40px;
-      /* Add some padding */
       overflow-y: auto;
+    }
+
+    /* Header specific styles */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Horizontally centers flex items */
+      /* text-align: center; class handles text within block items */
+      /* padding-large and caramel are applied via classes */
     }
 
     .small-screen-navbar {
       display: none;
-      /* Hidden by default, shown via media query */
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       background-color: #333;
-      /* Dark background for navbar */
       z-index: 1000;
     }
 
     .small-screen-navbar-inner {
       display: flex;
       justify-content: space-around;
-      /* Distribute items evenly */
     }
 
     .small-screen-navbar a {
-      padding: 14px 16px;
+      padding: 14px 10px;
       text-decoration: none;
       color: white;
       text-align: center;
       flex-grow: 1;
-      /* Allow items to grow and fill space */
+      font-size: 0.85em;
     }
 
     .small-screen-navbar a:hover {
       background-color: #555;
     }
 
-    /* Media query for small screens */
     @media only screen and (max-width: 768px) {
-
-      /* Adjusted breakpoint */
       body {
         grid-template-columns: 1fr;
-        /* Main content takes full width */
         grid-template-areas:
           "main";
       }
 
       .sidebar {
         display: none;
-        /* Hide sidebar */
       }
 
       .main-content {
         padding: 15px;
-        /* Adjust padding for smaller screens */
       }
 
       .small-screen-navbar {
         display: block;
-        /* Show small screen navbar */
       }
 
       header.page-header {
         padding-top: 60px;
-        /* Add padding to avoid overlap with fixed navbar */
       }
+
+      /* Ensures content isn't hidden by fixed navbar */
     }
 
-    /* Utility classes (replacing W3.CSS utilities) */
     .text-center {
       text-align: center;
     }
@@ -165,7 +165,6 @@
       color: #6c757d;
     }
 
-    /* Bootstrap-like grey */
     .text-black {
       color: #000;
     }
@@ -177,8 +176,6 @@
     .padding-xlarge {
       padding: 48px 16px;
     }
-
-    /* For sections like about, skills */
 
     .content-container {
       max-width: 980px;
@@ -211,6 +208,11 @@
     .button:hover {
       background-color: #555;
     }
+
+    .button i {
+      margin-right: 8px;
+    }
+
 
     hr.separator {
       border: 0;
@@ -254,7 +256,6 @@
       text-decoration: none;
       color: #6c757d;
       font-size: 28px;
-      /* Larger icons */
     }
 
     .footer-social-links a:hover {
@@ -270,11 +271,11 @@
       margin-bottom: 8px;
     }
   </style>
-  </head>
+</head>
 
 <body class="caramel">
 
-  <nav class="sidebar caramel">
+  <nav class="sidebar">
     <img src="me.png" alt="Tsohle Mokhemisi">
     <div class="sidebar-nav">
       <a href="#">
@@ -285,6 +286,10 @@
         <i class="fa fa-user"></i>
         <p>ABOUT</p>
       </a>
+      <a href="#projects">
+        <i class="fa fa-briefcase"></i>
+        <p>PROJECTS</p>
+      </a>
       <a href="#contact">
         <i class="fa fa-envelope"></i>
         <p>CONTACT</p>
@@ -292,19 +297,24 @@
     </div>
   </nav>
 
-  <div class="small-screen-navbar" id="myNavbar">
+  <div class="small-screen-navbar">
     <div class="small-screen-navbar-inner">
       <a href="#">HOME</a>
       <a href="#about">ABOUT</a>
+      <a href="#projects">PROJECTS</a>
       <a href="#contact">CONTACT</a>
     </div>
   </div>
 
   <div class="main-content">
+    <!-- The .text-center class on header is still useful for text within h1, p -->
     <header class="page-header text-center caramel padding-large" id="home">
       <h1 class="heading-jumbo"><span class="hide-small-screen">I'm</span> Tsohle</h1>
       <p>Software Engineer</p>
       <img src="me.png" alt="Tsohle Mokhemisi portrait" class="responsive-image" style="max-width:500px; margin-top: 20px;">
+      <a href="Tsohle_Mokhemisi_CV.pdf" download="Tsohle_Mokhemisi_CV.pdf" class="button" style="margin-top: 20px;">
+        <i class="fa fa-download"></i>Download CV
+      </a>
       </header>
 
     <section class="content-container padding-xlarge" id="about">
@@ -384,7 +394,7 @@
       <a class="fa fa-linkedin" href="https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/" target="_blank"
         title="LinkedIn"></a>
     </footer>
-    </div>
-    </body>
+  </div>
+  </body>
 
 </html>
